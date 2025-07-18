@@ -2,10 +2,6 @@
 name: "Deploy Infrastructure with Terraform"
 
 on:
-  push:
-    branches:
-      - feature-terraform
-
   workflow_dispatch:
 
 jobs:
