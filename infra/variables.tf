@@ -19,21 +19,6 @@ variable "ami_id" {
   type        = string
 }
 
-variable "vcp_cidr_block" {
-  description = "cidr block of VPC"
-  type        = string
-}
-variable "enable_nat_gw" {
-
-  description = "Set true to enable nat gw"
-  type        = bool
-}
-
-variable "server_ports" {
-  description = " port list"
-  type        = list(any)
-}
-
 variable "sec_groups" {
   description = " security groups ID"
   type        = list(string)

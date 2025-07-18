@@ -25,10 +25,6 @@ jobs:
         run: terraform init 
         working-directory: ./infra/
 
-      - name: Terraform fmt
-        run: terraform fmt
-        working-directory: ./infra/
-
       - name: Terraform validate
         run: terraform validate
         working-directory: ./infra/
