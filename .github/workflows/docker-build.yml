@@ -1,0 +1,33 @@
+name: Docker Build and Push
+
+on:
+  workflow_dispatch:
+
+jobs:
+  call-maven-build:
+    uses: ./.github/workflows/maven-build.yml
+
+  docker:
+    needs: call-maven-build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download JAR
+        uses: actions/download-artifact@v4
+        with:
+          name: built-jar
+          path: ./app/target
+
+      - name: Build Docker image
+        run: docker build . --file Dockerfile --tag java-web-app:${{ needs.call-maven-build.outputs.timestamp }}
+        working-directory: ./app
+
+      - name: Login to DockerHub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+      - name: Push Docker image
+        run: |
+          docker tag java-web-app:${{ needs.call-maven-build.outputs.timestamp }} ${{ secrets.DOCKER_USERNAME }}/java-web-app:${{ needs.call-maven-build.outputs.timestamp }}
+          docker push ${{ secrets.DOCKER_USERNAME }}/java-web-app:${{ needs.call-maven-build.outputs.timestamp }}
