@@ -7,7 +7,7 @@ jobs:
   call-maven-build:
     uses: ./.github/workflows/maven-build.yml
 
-  docker:
+  docker-build-publish:
     needs: call-maven-build
     runs-on: ubuntu-latest
 
