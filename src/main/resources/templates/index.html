@@ -41,6 +41,11 @@
       color: white;
       border: 1px solid white;
     }
+    .hostname {
+      margin-top: 2rem;
+      font-size: 1.1rem;
+      color: #e0e0e0;
+    }
   </style>
 </head>
 <body>
@@ -48,6 +53,9 @@
     <h1 th:text="${message}">Fallback message</h1>
     <p>This is a fancy Spring Boot Java 17 web application!</p>
     <a href="#" class="btn">Learn More</a>
+    <div class="hostname">
+      Hostname: <span th:text="${T(java.net.InetAddress).getLocalHost().getHostName()}">localhost</span>
+    </div>
   </div>
 </body>
 </html>
