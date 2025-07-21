@@ -7,7 +7,7 @@ resource "aws_instance" "webapp" {
   user_data              = file("userdata.sh")
 
   tags = {
-    "Name" = "${var.project_name}-${var.project_env}-webserver-${count.index}"
+    "Name" = "${var.project_name}-${var.project_env}-webserver-${count.index + 1}"
   }
 }
 
