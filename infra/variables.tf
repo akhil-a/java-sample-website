@@ -23,3 +23,8 @@ variable "sec_groups" {
   description = " security groups ID"
   type        = list(string)
 }
+
+variable "domain_name" {
+  description = "domain_name in route53"
+  type        = string
+}
