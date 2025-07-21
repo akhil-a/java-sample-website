@@ -19,3 +19,8 @@ resource "aws_route53_record" "route53_record" {
   records = aws_instance.webapp[*].public_ip
 
 }
+
+output "java_app_url" {
+  value = "http://${aws_route53_record.route53_record.name}:8080"
+
+}
