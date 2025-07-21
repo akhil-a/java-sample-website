@@ -32,5 +32,5 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag java-web-app:${{ needs.call-maven-build.outputs.timestamp }} ${{ secrets.DOCKER_USERNAME }}/java-web-app:latest
-          docker push ${{ secrets.DOCKER_USERNAME }}/java-web-app:latest
+          docker tag java-web-app:${{ needs.call-maven-build.outputs.timestamp }} ${{ vars.DOCKERHUB_USERNAME }}/java-web-app:latest
+          docker push ${{ vars.DOCKERHUB_USERNAME }}/java-web-app:latest
