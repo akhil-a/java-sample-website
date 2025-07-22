@@ -32,7 +32,9 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker image ls
-          docker tag java-web-app:${{ github.ref_name }}-${{ github.run_number }} ${{ vars.DOCKERHUB_USERNAME }}/java-web-app:latest
-          docker push ${{ vars.DOCKERHUB_USERNAME }}/java-web-app:latest
-          docker image ls
+          IMAGE_NAME=${{ vars.DOCKERHUB_USERNAME }}/java-web-app
+          TAG="${{ github.ref_name }}-${{ github.run_number }}"
+          docker tag java-web-app:$TAG $IMAGE_NAME:latest
+          docker tag java-web-app:$TAG $IMAGE_NAME:$TAG
+          docker push $IMAGE_NAME:latest
+          docker push $IMAGE_NAME:$TAG
