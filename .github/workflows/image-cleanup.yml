@@ -1,0 +1,24 @@
+name: Clean up image tags
+
+on:
+  workflow_dispatch:  # Manual trigger; you can also use `push`, `schedule`, etc.
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies (if needed)
+        run: |
+          pip install requests  # or any other packages your script uses
+
+      - name: Run Python script
+        run: python scripts/cleanup.py
