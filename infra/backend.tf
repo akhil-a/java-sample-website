@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-    bucket = "java-sample-app-akhil"
-    key    = "terraform.tfstate"
+    bucket = "terraform-statefiles-akhil10anil"
+    key    = "java-sample-app/terraform.tfstate"
     region = "ap-south-1"
   }
 }
