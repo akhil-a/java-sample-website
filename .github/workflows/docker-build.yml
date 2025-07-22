@@ -21,7 +21,7 @@ jobs:
           path: ./app/target
           
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag java-web-app:${{ github.ref }}-${{ github.run_number }}
+        run: docker build . --file Dockerfile --tag java-web-app:${{ github.ref_name }}-${{ github.run_number }}
         working-directory: ./app
 
       - name: Login to GitHub Container Registry
