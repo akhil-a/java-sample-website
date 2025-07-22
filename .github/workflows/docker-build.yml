@@ -28,7 +28,7 @@ jobs:
           echo "VERSION=$VERSION" >> $GITHUB_ENV
           
       - name: Build Docker image
-        run: docker build . --file Dockerfile --tag java-web-app:${{ github.run_number }}
+        run: docker build . --file Dockerfile --tag java-web-app:${{ github.ref }}-${{ github.run_number }}
         working-directory: ./app
 
       - name: Login to GitHub Container Registry
@@ -39,5 +39,7 @@ jobs:
 
       - name: Push Docker image
         run: |
-          docker tag java-web-app:${{ needs.call-maven-build.outputs.timestamp }} ${{ vars.DOCKERHUB_USERNAME }}/java-web-app:latest
+          docker image ls
+          docker tag java-web-app:${{ github.ref }}-${{ github.run_number }} ${{ vars.DOCKERHUB_USERNAME }}/java-web-app:latest
           docker push ${{ vars.DOCKERHUB_USERNAME }}/java-web-app:latest
+          docker image ls
