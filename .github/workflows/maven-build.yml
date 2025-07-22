@@ -2,16 +2,10 @@ name: Maven Build
 
 on:
   workflow_call:
-    outputs:
-      timestamp:
-        description: "Build timestamp"
-        value: ${{ jobs.build.outputs.timestamp }}
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      timestamp: ${{ steps.set-ts.outputs.timestamp }}
 
     steps:
       - uses: actions/checkout@v4
@@ -23,12 +17,9 @@ jobs:
           distribution: 'temurin'
 
       - name: Build with Maven
-        run: mvn -B clean package
+        run: mvn clean package
         working-directory: ./app
 
-      - name: Set timestamp
-        id: set-ts
-        run: echo "timestamp=$(date +%s)" >> "$GITHUB_OUTPUT"
 
       - name: Upload built JAR
         uses: actions/upload-artifact@v4
