@@ -19,18 +19,6 @@ jobs:
         with:
           name: built-jar
           path: ./app/target
-       
-      - name: Get Maven Version from pom.xml
-        id: get_version
-        run: |
-          VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
-          echo "Project Version: $VERSION"
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-	working-directory: ./app
-
-      - name: Print GitHub Build Number
-        run: echo "GitHub Build Number: ${{ github.run_number }} . pom version $VERSION"
-
       
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag java-web-app:${{ needs.call-maven-build.outputs.timestamp }}
