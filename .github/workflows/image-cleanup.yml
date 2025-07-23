@@ -39,9 +39,11 @@ jobs:
       - name: Read email content from file
         id: readfile
         run: |
-          CONTENT=$(<content.txt)
-          echo "body=$CONTENT" >> $GITHUB_OUTPUT
-        working-directory: ./scripts
+          {
+            echo "body<<EOF"
+            cat scripts/content.txt
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
 
 
       - name: Send Email
