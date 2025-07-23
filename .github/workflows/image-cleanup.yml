@@ -50,4 +50,4 @@ jobs:
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
           subject: Test Email
-          body: {{steps.readfile.output.body}}
+          body: ${{steps.readfile.output.body}}
