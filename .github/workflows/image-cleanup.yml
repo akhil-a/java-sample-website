@@ -28,6 +28,7 @@ jobs:
         run: python scripts/cleanup.py
       
   send_email:
+    needs: run-python
     runs-on: ubuntu-latest
     steps:
       - name: Send Email
