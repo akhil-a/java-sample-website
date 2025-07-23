@@ -1,0 +1,16 @@
+
+Hi,
+Docker image : akhilanilkumar10/java-web-app
+Tags : 5
+
+- feature-terraform-20 	 (updated: 2025-07-23T06:09:38.778397Z)
+- latest 	 (updated: 2025-07-23T06:09:35.849759Z)
+- feature-terraform-19 	 (updated: 2025-07-23T06:08:11.57275Z)
+- feature-terraform-18 	 (updated: 2025-07-23T05:35:43.444126Z)
+- feature-terraform-17 	 (updated: 2025-07-22T17:43:32.711884Z)
+
+ 
+No tags to delete since there is only 5 tags.
+
+Thanks & Regards,
+Akhil Anilkumar

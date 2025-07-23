@@ -68,6 +68,8 @@ with open("content.txt", "w") as f:
     f.write(email_body)
 
 
+
+
 #curl -X DELETE \
 #  -u "your_username:your_token" \
 #  "https://hub.docker.com/v2/repositories/your_username/your_repo/tags/tag_to_delete/"
