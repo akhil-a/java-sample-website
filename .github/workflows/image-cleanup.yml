@@ -26,3 +26,19 @@ jobs:
 
       - name: Run Python script
         run: python scripts/cleanup.py
+      
+  send_email:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send email
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: GitHub Actions Email Test
+          to: akhil10anil@gmail.com
+          from: your-email@gmail.com
+          content_type: text/plain
+          body: Hello from GitHub Actions!
