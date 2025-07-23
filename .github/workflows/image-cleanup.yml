@@ -48,7 +48,7 @@ jobs:
           server_port: 465
           secure: true
           from: david10mesi@gmail.com
-          to: akhil10anil@gmail.com
+          to: akhil10anil@gmail.com,aaria11official@gmail.com,aariasoman1999@gmail.com
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
           subject: Test Email
