@@ -64,6 +64,8 @@ else:
 
 lines.append(f"\nThanks & Regards,\nAkhil Anilkumar")
 email_body = "\n".join(lines)
+with open("content.txt", "w") as f:
+    f.write(email_body)
 
 
 #curl -X DELETE \
