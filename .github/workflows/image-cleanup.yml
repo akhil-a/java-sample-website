@@ -30,15 +30,18 @@ jobs:
   send_email:
     runs-on: ubuntu-latest
     steps:
-      - name: Send email
-        uses: dawidd6/action-send-mail@v6
+      - name: Send Email
+        uses: hilarion5/send-mail@v1
         with:
-          server_address: smtp.gmail.com
-          server_port: 465
+          smtp-server: smtp.example.com
+          smtp-port: 465
+          smtp-secure: true
+          from-email: david10mesi@gmail.com
+          to-email: akhil10anil@gmail.com
           username: ${{ secrets.SMTP_USERNAME }}
-          password: ${{ secrets.SMTP_PASSWORD }}
-          subject: GitHub Actions Email Test
-          to: akhil10anil@gmail.com
-          from: david10mesi@gmai.com
-          content_type: text/plain
-          body: Hello from GitHub Actions!
+           password: ${{ secrets.SMTP_PASSWORD }}
+          subject: Test Email
+          body: This is a test email sent from GitHub Actions.
+          html: |
+            <h1>This is a test email</h1>
+            <p>Test Paragraph</p>
