@@ -33,7 +33,7 @@ jobs:
       - name: Send Email
         uses: hilarion5/send-mail@v1
         with:
-          smtp-server: smtp.example.com
+          smtp-server: smtp.gmail.com
           smtp-port: 465
           smtp-secure: true
           from-email: david10mesi@gmail.com
