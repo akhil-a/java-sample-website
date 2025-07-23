@@ -12,15 +12,23 @@ try:
     response = requests.get(docker_api_url)
     response.raise_for_status()
     data=response.json()
-    tag_list={}
+    tag_list=[]
     for val in data['results']:
-        tag_list[val['name']] = val['last_updated']
-
-    if len(tag_list) >= 5:
-        print("tag list are 5 or above")
-        sorted_data = dict(sorted(tag_list.items(), key=lambda x: x[1], reverse=True))
-        for tags in sorted_data:
-            print(tags)
+        list= []
+        list.append(val['name'])
+        list.append(val['last_updated'])
+        tag_list.append(list)
+    tag_list.sort(key=lambda x: x[1], reverse=True)
+    tag_count=len(tag_list)
+    print(f"Image : {username}/{image_name}")
+    print("Tags : ")
+    for tags in tag_list:
+            print(f"{tags[0]}")
+    if tag_count >= 5:
+        print("Tags to delete :")
+        for i in range(5,tag_count):
+            print(tag_list[i])
+        
     else:
         print("less than 5")
 except requests.exceptions.RequestException as e:
