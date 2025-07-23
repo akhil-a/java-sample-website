@@ -1,7 +1,11 @@
 name: Clean up image tags
 
 on:
-  workflow_dispatch:  # Manual trigger; you can also use `push`, `schedule`, etc.
+  push:
+    branches:
+      - main
+      - feature-terraform
+  workflow_dispatch:
 
 jobs:
   run-python:
