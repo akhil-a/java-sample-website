@@ -39,11 +39,7 @@ jobs:
       - name: Read email content from file
         id: readfile
         run: |
-          echo "body<<EOF" >> "$GITHUB_OUTPUT"
-          cat scripts/content.txt >> "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
-
-
+          printf "body<<EOF\n%s\nEOF\n" "$(cat scripts/content.txt)" >> "$GITHUB_OUTPUT"
 
       - name: Send Email
         uses: dawidd6/action-send-mail@v6
