@@ -51,5 +51,5 @@ jobs:
           to: akhil10anil@gmail.com,aaria11official@gmail.com,aariasoman1999@gmail.com
           username: ${{ secrets.SMTP_USERNAME }}
           password: ${{ secrets.SMTP_PASSWORD }}
-          subject: Test Email
+          subject: 'Dockerhub ${{ github.workflow }} #${{ github.run_id }}'
           body: ${{ steps.readfile.outputs.body }}
