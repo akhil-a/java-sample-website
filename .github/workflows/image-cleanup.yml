@@ -39,11 +39,10 @@ jobs:
       - name: Read email content from file
         id: readfile
         run: |
-          {
-            echo "body<<EOF"
-            cat scripts/content.txt
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
+          echo "body<<EOF" >> "$GITHUB_OUTPUT"
+          cat scripts/content.txt >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
 
 
       - name: Send Email
