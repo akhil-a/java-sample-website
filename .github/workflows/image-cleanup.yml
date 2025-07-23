@@ -39,7 +39,7 @@ jobs:
           from-email: david10mesi@gmail.com
           to-email: akhil10anil@gmail.com
           username: ${{ secrets.SMTP_USERNAME }}
-           password: ${{ secrets.SMTP_PASSWORD }}
+          password: ${{ secrets.SMTP_PASSWORD }}
           subject: Test Email
           body: This is a test email sent from GitHub Actions.
           html: |
