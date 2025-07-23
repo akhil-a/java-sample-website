@@ -35,9 +35,9 @@ jobs:
       - name: Read email content from file
         id: readfile
         run: |
-          CONTENT=$(<content.txt)
+          CONTENT=$(<scripts/content.txt)
           echo "body=$CONTENT" >> $GITHUB_OUTPUT
-        working-directory: ./scripts
+
 
       - name: Send Email
         uses: dawidd6/action-send-mail@v6
