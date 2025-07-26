@@ -26,6 +26,13 @@ jobs:
 
       - name: Run Python script
         run: python scripts/cleanup.py
+      
+      - name: Upload email content
+        uses: actions/upload-artifact@v4
+        with:
+          name: email-content
+          path: scripts/content.txt
+
   
     
   send_email:
@@ -35,6 +42,12 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Download email content
+        uses: actions/download-artifact@v4
+        with:
+          name: email-content
+
 
       - name: Read email content from file
         id: readfile
